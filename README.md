@@ -198,6 +198,27 @@ Key observations:
 - Initial performance metrics were inaccurate because of incorrect training/testing boundaries
 - After debugging the dataset pipeline, SARIMAX produced more meaningful forecasts
 
+# Results and Key Findings
+
+The project successfully developed and evaluated three BTC/USD forecasting models: ARMA, ARIMA, and SARIMAX. Model performance was evaluated using Root Mean Squared Error (RMSE), where lower values indicate predictions closer to the actual Bitcoin price.
+
+## Model Performance
+
+| Model | Parameters | RMSE | Key Findings |
+|------|------------|------|--------------|
+| ARMA | (1,0,1) | 3646.75 | Captured short-term price patterns but struggled with large market movements |
+| ARIMA | (5,4,2) | 897.56 | Produced the lowest RMSE and best overall predictive accuracy |
+| SARIMAX | (5,4,2), Seasonal (2,2,2,12) | 913.42 | Performed similarly to ARIMA while incorporating seasonal patterns |
+
+---
+
+## ARMA Results
+
+The ARMA model was implemented using:
+
+```python
+SARIMAX(y, order=(1,0,1))
+
 ---
 
 ## Overall Findings
@@ -227,15 +248,8 @@ Visualizations include:
 - ARIMA predictions
 - SARIMAX predictions
 
-Visualization legend:
+<img width="767" height="437" alt="image" src="https://github.com/user-attachments/assets/7dceeb26-e877-497c-8f11-1cf5178a920a" />
 
-```
-Black  → Training Data
-Red    → Testing Data
-Green  → ARMA Predictions
-Yellow → ARIMA Predictions
-Blue   → SARIMAX Predictions
-```
 
 The graphs allow comparison between predicted values and actual BTC/USD market movements.
 
