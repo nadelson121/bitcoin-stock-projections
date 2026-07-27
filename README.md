@@ -218,6 +218,7 @@ The ARMA model was implemented using:
 
 ```python
 SARIMAX(y, order=(1,0,1))
+```
 
 ---
 
